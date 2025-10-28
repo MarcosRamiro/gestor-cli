@@ -1,24 +1,24 @@
 import click
+from .ui import console, show_menu, pause
+
 
 def menu():
     while True:
-        click.clear()
-        click.echo(click.style("=== Menu Pessoas ===", fg="green", bold=True))
-        click.echo("1. Listar membros do time")
-        click.echo("2. Gerar matriz de skills")
-        click.echo("3. Voltar\n")
+        show_menu(
+            "=== Menu Pessoas ===",
+            ["Listar membros do time", "Gerar matriz de skills", "Voltar"],
+        )
 
         opcao = click.prompt("Escolha uma opção", type=int)
 
         if opcao == 1:
-            click.echo("Listando membros do time...")
-            click.pause()
+            console.print("[bold]Listando membros do time...[/]")
+            pause()
         elif opcao == 2:
-            click.echo("Gerando matriz de skills...")
-            click.pause()
+            console.print("[bold]Gerando matriz de skills...[/]")
+            pause()
         elif opcao == 3:
             break
         else:
-            click.echo("Opção inválida.")
-            click.pause()
-
+            console.print("[red]Opção inválida.[/]")
+            pause()

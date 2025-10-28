@@ -1,21 +1,28 @@
 import click
+from .ui import console, show_menu, pause
+from .util.configuration_db import get_config
+
 
 def menu():
     while True:
-        click.clear()
-        click.echo(click.style("=== Menu IA 🤖 ===", fg="magenta", bold=True))
-        click.echo("1. Gerar resumo inteligente")
-        click.echo("2. Voltar\n")
+        show_menu("=== 🤖 Menu IA ===", ["Gerar resumo inteligente", "Voltar"])
 
         opcao = click.prompt("Escolha uma opção", type=int)
 
         if opcao == 1:
-            click.echo("Gerando resumo usando IA (simulação)...")
-            click.echo("👉 'Resumo: nova jornada de login aumentou conversão em 12%.'")
-            click.pause()
+            console.print("[bold]Gerando resumo usando IA (simulação)...[/]")
+
+            resumo = get_config("ultimo_resumo_ia")
+            if resumo:
+                console.print(f"👉 [italic]Resumo salvo anteriormente: '{resumo}'[/]")
+            else:
+                console.print(
+                    "👉 [italic]'Resumo: nova jornada de login aumentou conversão em 12%.'[/]"
+                )
+            # set_config("ultimo_resumo_ia", "Resumo: nova jornada de login aumentou conversão em 12%.")
+            pause()
         elif opcao == 2:
             break
         else:
-            click.echo("Opção inválida.")
-            click.pause()
-
+            console.print("[red]Opção inválida.[/]")
+            pause()

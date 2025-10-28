@@ -1,17 +1,11 @@
 import click
 from . import pessoas, produtividade, ia
+from .ui import console, show_menu
+
 
 def main():
     while True:
-        click.clear()
-        click.echo(click.style("========================", fg="cyan"))
-        click.echo(click.style(" CENTRAL CLI - v0.1.0", fg="yellow", bold=True))
-        click.echo(click.style("========================\n", fg="cyan"))
-
-        click.echo("1. Pessoas")
-        click.echo("2. Produtividade")
-        click.echo("3. IA")
-        click.echo("4. Sair\n")
+        show_menu("🙋 GESTOR CLI  - v0.1.0", ["Pessoas", "Produtividade", "IA", "Sair"])
 
         opcao = click.prompt("Escolha uma opção", type=int)
 
@@ -22,8 +16,8 @@ def main():
         elif opcao == 3:
             ia.menu()
         elif opcao == 4:
-            click.echo("\nSaindo... até logo!")
+            console.print("\n[bold yellow]Saindo... até logo![/]")
             break
         else:
-            click.echo("Opção inválida.")
+            console.print("[red]Opção inválida.[/]")
             click.pause()
