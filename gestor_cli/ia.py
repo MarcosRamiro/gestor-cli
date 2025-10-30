@@ -21,7 +21,7 @@ def menu():
                 )
             # set_config("ultimo_resumo_ia", "Resumo: nova jornada de login aumentou conversão em 12%.")
             pause()
-        elif opcao == 2:
+        elif opcao == 0:
             break
         else:
             console.print("[red]Opção inválida.[/]")

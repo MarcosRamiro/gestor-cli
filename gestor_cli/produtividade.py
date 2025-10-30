@@ -16,7 +16,7 @@ def menu():
                 time.sleep(1)
             console.print("[yellow]Tempo encerrado! Faça uma pausa. ☕[/]")
             pause()
-        elif opcao == 2:
+        elif opcao == 0:
             break
         else:
             console.print("[red]Opção inválida.[/]")

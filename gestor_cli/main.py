@@ -15,7 +15,7 @@ def main():
             produtividade.menu()
         elif opcao == 3:
             ia.menu()
-        elif opcao == 4:
+        elif opcao == 0:
             console.print("\n[bold yellow]Saindo... até logo![/]")
             break
         else:

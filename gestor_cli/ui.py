@@ -18,8 +18,14 @@ def show_menu(title: str, options: Sequence[str]) -> None:
     table.add_column("#", style="bold green", width=4)
     table.add_column("option")
 
+    options_aux = options[:-1]
+    ultimo_item = options[-1]
+    options = options_aux
+
     for i, opt in enumerate(options, start=1):
         table.add_row(f"{i}.", opt)
+    else:
+        table.add_row("0.", ultimo_item)
 
     console.print(table)
     console.print()
