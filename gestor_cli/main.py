@@ -21,3 +21,8 @@ def main():
         else:
             console.print("[red]Opção inválida.[/]")
             click.pause()
+
+
+if __name__ == "__main__":
+    main()
+
