@@ -31,4 +31,3 @@ def get_config(key):
     cur = conn.execute("SELECT value FROM configs WHERE key=?", (key,))
     row = cur.fetchone()
     return row[0] if row else None
-
